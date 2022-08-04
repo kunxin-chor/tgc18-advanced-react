@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import AddProduct from './AddProductForm';
 import ProductContext from './ProductContext'
 import ProductListing from './ProductListing';
 function App() {
@@ -25,7 +26,20 @@ function App() {
   const context = {
     // function to get all the products
     getProducts: () => {
+      // put the axios here to fetch all products
+
       return products;
+    },
+
+    addProduct: (productName, cost) => {
+      const cloned = [...products, {
+        id:  Math.floor((Math.random() * 100000) + 10000),
+        product_name: productName,
+        cost: cost
+      }]
+      setProducts(cloned);
+
+      // todo: axios: add new product via endpoint
     }
   }
 
@@ -36,6 +50,7 @@ function App() {
       <ProductContext.Provider value={context}>
         <h1>My Catalog</h1>
         <ProductListing/>
+        <AddProduct/>
       </ProductContext.Provider>
 
     </React.Fragment>

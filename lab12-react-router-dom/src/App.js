@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 import AboutUs from './pages/AboutUs';
 import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
+import PostPage from './pages/PostPage';
 import SubmittedForm from "./pages/SubmittedForm";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+            <li>
+              <Link to="/posts">Posts</Link>
+            </li>
           </ul>
           {/* The <Routes> contains the pages */}
           <Routes>
@@ -28,6 +32,7 @@ function App() {
             <Route path="/about" element={<AboutUs/>} />
             <Route path="/contact" element={<ContactUs/>} />
             <Route path="/form-submitted" element={<SubmittedForm/>} />
+            <Route path="/posts" element={<PostPage/>}/>
           </Routes>
         </nav>
       </Router>

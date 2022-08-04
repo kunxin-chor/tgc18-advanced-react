@@ -21,6 +21,11 @@ export default function PostPage(props) {
 
     }, [activePostId]);
 
+    // replicate ComponentDidMount
+    useEffect(()=>{
+        console.log("First render")
+    }, []);  // <-- empty array means the useEffect only activates once
+
     return <Fragment>
         <h1>Posts</h1>
         <input type="text" name="activePostId"

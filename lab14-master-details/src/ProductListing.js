@@ -1,4 +1,5 @@
 import { Fragment, useContext } from "react";
+import { Link } from "react-router-dom";
 import ProductContext from "./ProductContext";
 
 export default function ProductListing() {
@@ -9,7 +10,11 @@ export default function ProductListing() {
             <ul>
                 {
                     context.getProducts().map( p => 
-                        <li>{p.product_name}</li>)
+                        <li>
+                            <Link to={"/product/" + p.id}>
+                                {p.product_name}
+                            </Link>
+                        </li>)
                 }
             </ul>
         </Fragment>

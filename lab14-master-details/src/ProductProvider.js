@@ -30,6 +30,12 @@ export default function ProductProvider(props) {
             setProducts(
                 [...products, newProduct]
             )
+        },
+        getProductById(productId) {
+            const p = products.find(p =>{
+                return p.id === productId;
+            });
+            return p;
         }
     }
 
